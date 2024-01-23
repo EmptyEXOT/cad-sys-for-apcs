@@ -1,0 +1,44 @@
+:root {
+    --max-width: 1100px;
+    --foreground-rgb: 0, 0, 0;
+    --color-dark-700: #090909;
+    --color-light: white;
+    --color-dark-200: #CFCFCF;
+    --color-dark-300: #9E9E9E;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+
+    max-width: 100vw;
+    overflow-x: hidden;
+
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+/*  html {*/
+/*    color-scheme: dark;*/
+/*  }*/
+/*}*/
+
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border: none;
+}
