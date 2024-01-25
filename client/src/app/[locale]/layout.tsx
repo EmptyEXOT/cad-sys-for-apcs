@@ -1,6 +1,9 @@
 import type {Metadata} from "next";
 import "./globals.scss";
 import {inter} from '@/shared/fonts/fonts'
+import Navbar from "@/widgets/Navbar/Navbar";
+import {NextIntlClientProvider, useMessages} from "next-intl";
+import * as console from "console";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -14,9 +17,16 @@ export default function RootLayout({
     children: React.ReactNode;
     params: { locale: string }
 }>) {
+    const messages = useMessages();
+
     return (
         <html lang={locale}>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar/>
+            {children}
+        </NextIntlClientProvider>
+        </body>
         </html>
     );
 }

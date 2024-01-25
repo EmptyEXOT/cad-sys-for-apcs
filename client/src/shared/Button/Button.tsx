@@ -1,20 +1,15 @@
-import React, {FC, ReactNode} from 'react';
+import React, {ButtonHTMLAttributes, FC, ReactNode} from 'react';
+import classNames from "classnames";
 
-interface ButtonProps {
-    children?: ReactNode
-    className?: string | undefined;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+    children: ReactNode;
+    className?: string;
 }
 
-const Button: FC<ButtonProps> = (
-    {
-        children,
-        className,
-        ...props
-    }
-) => {
+const Button: FC<ButtonProps> = (props) => {
     return (
-        <button>
-            {children}
+        <button {...props} className={classNames('px-2 flex flex-col justify-center', props.className)}>
+            {props.children}
         </button>
     );
 };
