@@ -1,5 +1,13 @@
 {
   "Index": {
     "title": "Hello world!"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "feature": "Features",
+    "contacts": "Contacts",
+    "topics": "Topics",
+    "gallery": "Gallery"
   }
 }
