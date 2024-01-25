@@ -9,5 +9,15 @@
     "contacts": "Contacts",
     "topics": "Topics",
     "gallery": "Gallery"
+  },
+  "Sections": {
+    "Cover": {
+      "title": "Revolutionize your manufacturing process with our CAD",
+      "description": "Our digital platform provides cutting-edge computer-aided design solutions for automated process control systems. Streamline your operations and increase efficiency with our customizable services.",
+      "Buttons": {
+        "learn_more": "Learn More",
+        "sign_up": "Sign Up"
+      }
+    }
   }
 }

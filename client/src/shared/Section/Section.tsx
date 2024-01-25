@@ -10,7 +10,7 @@ export enum BgVariant {
 }
 
 interface SectionProps {
-    classNames?: string;
+    className?: string | undefined;
     children: ReactNode;
     isFullWidth?: boolean;
     bg?: BgVariant;
@@ -19,7 +19,7 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = (props) => {
     return (
-        <div id={props.id} className={classNames('mx-auto px-6', props.isFullWidth ? cls.fullWidth : 'container', props.classNames)}>
+        <div id={props.id} className={classNames('mx-auto px-4 leading-8', props.isFullWidth ? cls.fullWidth : 'container', props.className)}>
             {props.bg === BgVariant.Image ?
                 <ImagePlaceholder bgColor={ImgPlaceholderBgColor.dark} classNames={'absolute -z-10 h-screen'}/> : null}
             {props.children}
