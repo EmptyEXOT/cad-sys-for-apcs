@@ -1,3 +1,4 @@
+'use client'
 import React, {ButtonHTMLAttributes, FC, ReactNode} from 'react';
 import classNames from "classnames";
 
@@ -8,14 +9,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fill?: boolean;
 }
 
-const Button: FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = ({children, className, border, fill, ...props}) => {
     return (
-        <button {...props}
-                className={classNames('text-2xl p-4 px-5 justify-center', props.className, props.border
+        <button onClick={() => {console.log('press')}} {...props}
+                className={classNames('text-2xl p-4 px-5 justify-center', className, border
                         ? 'border-black rounded border-solid' : '',
-                    props.fill
+                    fill
                         ? 'bg-black text-white' : '',)}>
-            {props.children}
+            {children}
         </button>
     );
 };

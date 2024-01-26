@@ -4,11 +4,16 @@ import Section, {BgVariant} from "@/shared/Section/Section";
 import {Sections} from "@/shared/sections/sections";
 import classNames from "classnames";
 import ImagePlaceholder from "@/shared/Placeholder/ImagePlaceholder/ImagePlaceholder";
+import Modal from "@/widgets/Modal/Modal";
+import SignUpForm from "@/widgets/SignUpForm/SignUpForm";
 
 export default function Home() {
     const t = useTranslations('Sections')
     return (
         <main className="">
+            <Modal>
+                <SignUpForm />
+            </Modal>
             <Section isFullWidth={true} id={Sections.Home}
                      className={classNames('h-full flex flex-col justify-center bg-gray-200')}>
                 <Section id={Sections.Contacts}>

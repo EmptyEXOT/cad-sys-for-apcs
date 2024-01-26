@@ -3,12 +3,10 @@
     "title": "Привет, мир!"
   },
   "Nav": {
-    "home": "Главная",
+    "explore_products": "Продукты",
     "about": "Подробнее",
-    "feature": "Возможности",
-    "contacts": "Контакты",
-    "topics": "Статьи",
-    "gallery": "Галлерея"
+    "contact_us": "Контакты",
+    "services": "Сервисы"
   },
   "Sections": {
     "Cover": {

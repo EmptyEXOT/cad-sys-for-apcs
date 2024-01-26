@@ -3,12 +3,10 @@
     "title": "Hello world!"
   },
   "Nav": {
-    "home": "Home",
-    "about": "About",
-    "feature": "Features",
-    "contacts": "Contacts",
-    "topics": "Topics",
-    "gallery": "Gallery"
+    "explore_products": "Explore Products",
+    "about": "About Us",
+    "contact_us": "Contact",
+    "services": "Services"
   },
   "Sections": {
     "Cover": {
