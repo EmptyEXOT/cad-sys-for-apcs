@@ -18,6 +18,14 @@
         "learn_more": "Learn More",
         "sign_up": "Sign Up"
       }
+    },
+    "Services": {
+      "title": "Custom Services for Manufacturing Enterprises",
+      "description": "Experience our tailored solutions for automated process control systems, designed to optimize manufacturing operations and increase efficiency.",
+      "Buttons": {
+        "learn_more": "Learn More",
+        "sign_up": "Sign Up >"
+      }
     }
   }
 }
