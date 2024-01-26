@@ -46,3 +46,11 @@ button, input[type="submit"], input[type="reset"] {
     outline: inherit;
     border: none;
 }
+
+.square {
+    display: flex;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%;
+    position: relative;
+}

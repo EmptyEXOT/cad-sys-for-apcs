@@ -30,17 +30,22 @@ const Navbar: FC<HeaderProps> = (
     return (
         <>
             <div
-                className={classNames('bg-neutral-100 md:bg-neutral-200 z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md', cls.navbar)}>
-                <div className={classNames('container flex justify-between mx-auto px-4 py-2 z-50')}>
-                    <Image alt={'logo'} src={Logo}></Image>
-                    <div className={classNames('hidden md:flex justify-center')}>
-                        <NavbarLink offset={-70} to={Sections.Home}>{t('home')}</NavbarLink>
-                        <NavbarLink offset={100} to={Sections.About}>{t('about')}</NavbarLink>
-                        <NavbarLink offset={60} to={Sections.Feature}>{t('feature')}</NavbarLink>
-                        <NavbarLink offset={100} to={Sections.Contacts}>{t('contacts')}</NavbarLink>
-                        <NavbarLink offset={170} to={Sections.Topics}>{t('topics')}</NavbarLink>
-                        <NavbarLink offset={100} to={Sections.Gallery}>{t('gallery')}</NavbarLink>
+                className={classNames('bg-neutral-100 md:bg-neutral-200 z-20 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md', cls.navbar)}>
+                <div className={classNames('container flex justify-between mx-auto px-4 py-2 z-20')}>
+                    <div className={classNames('flex gap-10 justify-between w-full')}>
+                        <Image alt={'logo'} src={Logo}></Image>
+                        <div className={classNames('hidden md:flex justify-center')}>
+                            <NavbarLink offset={-70} to={Sections.Home}>{t('explore_products')}</NavbarLink>
+                            <NavbarLink offset={100} to={Sections.About}>{t('about')}</NavbarLink>
+                            <NavbarLink offset={60} to={Sections.Feature}>{t('contact_us')}</NavbarLink>
+                            <NavbarLink offset={100} to={Sections.Contacts}>{t('services')}</NavbarLink>
+                        </div>
+                        <div className={classNames('hidden md:flex flex gap-5')}>
+                            <Button border={true}>Learn More</Button>
+                            <Button fill={true} border={true}>Sign Up</Button>
+                        </div>
                     </div>
+
                     <Button onClick={() => setIsOpen(prevState => !prevState)} className={classNames('md:hidden pe-0')}>
                         <Image alt={'menu'} src={MenuIcon} width={36} height={24}></Image>
                     </Button>
