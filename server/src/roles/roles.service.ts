@@ -17,6 +17,10 @@ export class RolesService {
         if (candidate) {
             throw new HttpException('Such a role already exists', HttpStatus.CONFLICT)
         }
-        await this.roleModel.create(createRoleDto)
+        return await this.roleModel.create(createRoleDto)
+    }
+
+    async getAll() {
+        return await this.roleModel.findAll();
     }
 }
