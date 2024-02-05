@@ -63,7 +63,7 @@ export class UserService {
                 userRole.destroy();
             })
             await candidate.destroy()
-            return true;
+            return candidate;
         }
         throw new HttpException(`User with such name doesn't exist`, HttpStatus.NOT_FOUND)
     }
@@ -73,7 +73,7 @@ export class UserService {
         const newRole = await this.rolesService.getByValue(role);
         if (candidate && newRole) {
             await candidate.$add('roles', [newRole.id]);
-            return newRole;
+            return candidate;
         }
         throw new HttpException(`User with such name or role doesn't exist`, HttpStatus.NOT_FOUND)
     }

@@ -5,6 +5,7 @@ import {compare, hash} from "bcryptjs";
 import {User} from "../users/user.model";
 import {JwtService} from "@nestjs/jwt";
 import {AuthDto} from "./dtos/Auth.dto";
+import {TokensDto} from "./dtos/Tokens.dto";
 
 @Injectable()
 export class AuthService {
@@ -25,7 +26,7 @@ export class AuthService {
         return tokens;
     }
 
-    async login(authDto: AuthDto) {
+    async login(authDto: AuthDto): Promise<TokensDto> {
         const user = await this.validateUser(authDto.username, authDto.password);
         if (!user) {
             throw new HttpException('Incorrect username or password', HttpStatus.BAD_REQUEST);
@@ -48,7 +49,7 @@ export class AuthService {
         return null;
     }
 
-    async refreshTokens(userId: number, refreshToken: string) {
+    async refreshTokens(userId: number, refreshToken: string): Promise<TokensDto> {
         const candidate = await this.userService.getUserById(userId);
 
         if (!candidate || !candidate.refreshToken) {
