@@ -1,9 +1,12 @@
 'use client'
 
-import React, {FC, ReactNode, useState} from 'react';
+import React, {FC, KeyboardEvent, ReactNode, useEffect, useState} from 'react';
 import classNames from "classnames";
 import cls from "./Modal.module.scss"
 import {set} from "immutable";
+import StoreProvider from "@/shared/StoreProvider";
+import {useAppDispatch, useAppSelector} from "@/shared/hooks/useAppDispatch";
+import {setIsOpen} from "@/widgets/Modal/modalSlice";
 
 interface ModalProps {
     children?: ReactNode
@@ -16,12 +19,28 @@ const Modal: FC<ModalProps> = (
         ...props
     }
 ) => {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    const isOpen = useAppSelector((state) => state.modal.isOpen)
+    const dispatch = useAppDispatch()
+
+    const onEscapeKeydown = (event: any) => {
+        if (event.key === 'Escape') dispatch(setIsOpen(false))
+    }
+
+    useEffect(() => {
+        window.addEventListener('keydown', onEscapeKeydown)
+        if (!isOpen) {
+            window.removeEventListener('keydown', onEscapeKeydown)
+        }
+        return () => window.removeEventListener('keydown', onEscapeKeydown)
+    }, [isOpen]);
+
     return (
         <>
-            <div onClick={() => {setIsOpen(prevState => !prevState)}} className={classNames(isOpen ? 'absolute bg-gray-500 opacity-30 w-screen h-screen top-0 bottom-0 z-40': 'hidden')} />
-            <div className={classNames(cls.modal, isOpen ? 'absolute bg-amber-400 z-50' : 'hidden', props.className)}>
-
+            <div onClick={() => {
+                dispatch(setIsOpen(false))
+            }}
+                 className={classNames(isOpen ? ('fixed bg-gray-800 opacity-80 w-screen h-screen top-0 bottom-0 z-40') : 'hidden')}/>
+            <div className={classNames(cls.modal, isOpen ? 'fixed bg-amber-400 z-50' : 'hidden', props.className)}>
                 {children}
             </div>
         </>

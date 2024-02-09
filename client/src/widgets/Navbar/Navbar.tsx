@@ -11,6 +11,9 @@ import Image from 'next/image'
 import Button from "@/shared/Button/Button";
 import Menu from "@/widgets/Navbar/Menu";
 import {useTranslations} from "next-intl";
+import {useAppDispatch} from "@/shared/hooks/useAppDispatch";
+import StoreProvider from "@/shared/StoreProvider";
+import {setIsOpen as setIsOpenStore} from "@/widgets/Modal/modalSlice";
 
 interface HeaderProps {
     children?: ReactNode
@@ -26,6 +29,7 @@ const Navbar: FC<HeaderProps> = (
 ) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const t = useTranslations('Nav')
+    const dispatch = useAppDispatch()
 
     return (
         <>
@@ -42,7 +46,7 @@ const Navbar: FC<HeaderProps> = (
                         </div>
                         <div className={classNames('hidden md:flex flex gap-5')}>
                             <Button border={true}>Learn More</Button>
-                            <Button fill={true} border={true}>Sign Up</Button>
+                            <Button onClick={() => {dispatch(setIsOpenStore(true))}} fill={true} border={true}>Sign Up</Button>
                         </div>
                     </div>
 
