@@ -1,58 +1,20 @@
 import {useTranslations} from 'next-intl'
 import Button from "@/shared/Button/Button";
-import Section, {BgVariant} from "@/shared/Section/Section";
+import Section from "@/shared/Section/Section";
 import {Sections} from "@/shared/sections/sections";
 import classNames from "classnames";
 import ImagePlaceholder from "@/shared/Placeholder/ImagePlaceholder/ImagePlaceholder";
-import Modal from "@/widgets/Modal/Modal";
-import SignUpForm from "@/widgets/SignUpForm/SignUpForm";
+import React from "react";
+import HomeSection from "@/sections/HomeSection/HomeSection";
 
 export default function Home() {
     const t = useTranslations('Sections')
     return (
         <main className="">
-            <Modal>
-                <SignUpForm />
-            </Modal>
-            <Section isFullWidth={true} id={Sections.Home}
-                     className={classNames('h-full flex flex-col justify-center bg-gray-200')}>
-                <Section id={Sections.Contacts}>
-                    <div className={classNames('pt-32 flex flex-col gap-8 pb-20')}>
-                        <h1 className={classNames('text-5xl font-bold leading-snug')}>
-                            {t('Cover.title')}
-                        </h1>
-                        <p className={classNames('text-2xl leading-normal')}>
-                            {t('Cover.description')}
-                        </p>
-                        <div className={classNames('flex gap-4 flex-col')}>
-                            <Button border={true}>{t('Cover.Buttons.learn_more')}</Button>
-                            <Button border={true} fill={true}>{t('Cover.Buttons.sign_up')}</Button>
-                        </div>
-                    </div>
-                </Section>
 
-            </Section>
-            <Section id={Sections.Feature} className={classNames('pt-24')}>
-                <div className={classNames('flex flex-col gap-8')}>
-                    <h1 className={classNames('text-5xl font-bold leading-snug')}>
-                        {t('Services.title')}
-                    </h1>
-                    <p className={classNames('text-2xl leading-normal')}>
-                        {t('Services.description')}
-                    </p>
-                    <div className={classNames('flex gap-4 flex-col')}>
-                        <Button border={true}>{t('Services.Buttons.learn_more')}</Button>
-                        <Button border={false} fill={false}>{t('Services.Buttons.sign_up')}</Button>
-                    </div>
-                    <div className={classNames('flex flex-col justify-center lg:flex-1')}>
-                        <div className={classNames('flex justify-center')}>
-                            <div className={classNames('square')}>
-                                <ImagePlaceholder classNames={classNames('h-full absolute')}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Section>
+
+            <HomeSection/>
+
             <Section id={Sections.Gallery} className={classNames('pt-24')}>
                 <div className={classNames('flex flex-col gap-16')}>
                     <div className={classNames('flex flex-col gap-8 text-center')}>
@@ -152,7 +114,8 @@ export default function Home() {
                             Streamlined Design Process
                         </h2>
                         <p className={classNames('text-2xl leading-normal')}>
-                            COur platform offers a streamlined design process, allowing you to efficiently create automated process control systems that meet your specific requirements.
+                            COur platform offers a streamlined design process, allowing you to efficiently create
+                            automated process control systems that meet your specific requirements.
                         </p>
                     </div>
                     <div className={classNames('flex flex-col gap-4')}>
@@ -160,7 +123,8 @@ export default function Home() {
                             Collaborate and Share
                         </h2>
                         <p className={classNames('text-2xl leading-normal')}>
-                            Collaborate with your team and easily share your designs to gather feedback and make improvements, ensuring the success of your automated process control systems.
+                            Collaborate with your team and easily share your designs to gather feedback and make
+                            improvements, ensuring the success of your automated process control systems.
                         </p>
                     </div>
                     <div className={classNames('flex flex-col gap-4')}>
@@ -168,7 +132,8 @@ export default function Home() {
                             Seamless Integration
                         </h2>
                         <p className={classNames('text-2xl leading-normal')}>
-                            Our platform seamlessly integrates with existing manufacturing systems, making it easy to implement your automated process control systems without any disruptions.
+                            Our platform seamlessly integrates with existing manufacturing systems, making it easy to
+                            implement your automated process control systems without any disruptions.
                         </p>
                     </div>
                     <div className={classNames('flex gap-4 flex-col')}>
@@ -186,7 +151,10 @@ export default function Home() {
                         Transforming Industries Through Customized Automation Solutions
                     </h1>
                     <p className={classNames('text-2xl leading-normal')}>
-                        At our digital platform, we specialize in developing custom services for manufacturing enterprises, providing computer-aided design solutions for automated process control systems. Our mission is to revolutionize industries by delivering innovative and tailored automation solutions that optimize efficiency and productivity.
+                        At our digital platform, we specialize in developing custom services for manufacturing
+                        enterprises, providing computer-aided design solutions for automated process control systems.
+                        Our mission is to revolutionize industries by delivering innovative and tailored automation
+                        solutions that optimize efficiency and productivity.
                     </p>
                     <div className={classNames('flex gap-4 flex-col')}>
                         <Button border={true}>Learn More</Button>
