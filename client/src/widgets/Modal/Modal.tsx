@@ -40,7 +40,7 @@ const Modal: FC<ModalProps> = (
                 dispatch(setIsOpen(false))
             }}
                  className={classNames(isOpen ? ('fixed bg-gray-800 opacity-80 w-screen h-screen top-0 bottom-0 z-40') : 'hidden')}/>
-            <div className={classNames(cls.modal, isOpen ? 'fixed bg-amber-400 z-50' : 'hidden', props.className)}>
+            <div className={classNames(cls.modal, isOpen ? 'fixed z-50' : 'hidden', props.className)}>
                 {children}
             </div>
         </>
