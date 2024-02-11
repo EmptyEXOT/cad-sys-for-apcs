@@ -5,9 +5,10 @@ import Navbar from "@/widgets/Navbar/Navbar";
 import {NextIntlClientProvider, useMessages} from "next-intl";
 import * as console from "console";
 import StoreProvider from "@/shared/StoreProvider";
-import SignUpForm from "@/widgets/SignUpForm/SignUpForm";
+import SignUpForm from "@/features/SignUpForm/SignUpForm";
 import Modal from "@/widgets/Modal/Modal";
 import React from "react";
+import Test from "@/widgets/Test/Test";
 
 export const metadata: Metadata = {
     title: "Create Next App",
