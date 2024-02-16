@@ -5,7 +5,7 @@ import classNames from "classnames";
 import cls from "./Modal.module.scss"
 import {set} from "immutable";
 import StoreProvider from "@/shared/store/StoreProvider";
-import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {useAppDispatch, useAppSelector} from "@/shared/store/hooks";
 import {modalActions} from "@/widgets/Modal/model/modalSlice";
 import {modalStateSelector} from "@/widgets/Modal/model/selectors";
 
@@ -21,7 +21,7 @@ const Modal: FC<ModalProps> = (
     }
 ) => {
     const {isOpen} = useAppSelector(modalStateSelector)
-    const dispatch = hooks()
+    const dispatch = useAppDispatch()
 
     const onEscapeKeydown = (event: any) => {
         if (event.key === 'Escape') dispatch(modalActions.setIsOpen(false))

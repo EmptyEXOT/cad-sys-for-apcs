@@ -1,5 +1,4 @@
 import {useTranslations} from 'next-intl'
-import Button from "@/shared/Button/Button";
 import Section from "@/shared/Section/Section";
 import {Sections} from "@/shared/sections/sections";
 import classNames from "classnames";
@@ -9,6 +8,7 @@ import HomeSection from "@/sections/HomeSection/HomeSection";
 import Test from "@/widgets/Test/Test";
 import {Provider} from "react-redux";
 import StoreProvider from "@/shared/store/StoreProvider";
+import Button from "@/shared/ui/Button/Button";
 
 export default function Home() {
     const t = useTranslations('Sections')

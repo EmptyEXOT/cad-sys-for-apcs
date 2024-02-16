@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {Sections} from "@/shared/sections/sections";
-import Button from "@/shared/Button/Button";
 import classNames from "classnames";
 import {Link} from "react-scroll";
+import Button from '@/shared/ui/Button/Button';
 
 interface NavbarLinkProps {
     offset: number;

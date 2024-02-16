@@ -1,10 +1,9 @@
 import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
-import cls from "./HomeSection.module.scss"
 import {Sections} from "@/shared/sections/sections";
 import Section from "@/shared/Section/Section";
-import Button from "@/shared/Button/Button";
 import {useTranslations} from 'next-intl';
+import Button from "@/shared/ui/Button/Button";
 
 interface HomeSectionProps {
     children?: ReactNode

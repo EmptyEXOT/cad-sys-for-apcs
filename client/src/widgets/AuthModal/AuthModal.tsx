@@ -3,9 +3,9 @@ import React, {FC, ReactNode, useState} from 'react';
 import classNames from "classnames";
 import cls from "./AuthModal.module.scss"
 import Modal from "@/widgets/Modal/Modal";
-import Button from "@/shared/Button/Button";
 import LoginForm from "@/features/Login/ui/LoginForm";
 import SignUp from "@/features/SignUp/SignUp";
+import Button from '@/shared/ui/Button/Button';
 
 enum Form {
     Login = 'Auth',
