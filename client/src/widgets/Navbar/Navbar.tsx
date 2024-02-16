@@ -1,6 +1,6 @@
 'use client'
 
-import React, {FC, ReactNode, useState} from 'react';
+import React, {FC, ReactNode, useEffect, useState} from 'react';
 import classNames from "classnames";
 import cls from "./Navbar.module.scss"
 import NavbarLink from "@/widgets/Navbar/NavbarLink";
@@ -11,9 +11,11 @@ import Image from 'next/image'
 import Button from "@/shared/Button/Button";
 import Menu from "@/widgets/Navbar/Menu";
 import {useTranslations} from "next-intl";
-import {useAppDispatch} from "@/shared/hooks/useAppDispatch";
-import StoreProvider from "@/shared/StoreProvider";
-import {setIsOpen as setIsOpenStore} from "@/widgets/Modal/modalSlice";
+import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {userActions} from "@/entities/User/model/userSlice";
+import {selectUserInfo} from "@/entities/User/model/selectors";
+import {modalActions} from "@/widgets/Modal/model/modalSlice";
+import {modalStateSelector} from "@/widgets/Modal/model/selectors";
 
 interface HeaderProps {
     children?: ReactNode
@@ -27,9 +29,14 @@ const Navbar: FC<HeaderProps> = (
         ...props
     }
 ) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isExtended, setIsExtended] = useState<boolean>(false)
     const t = useTranslations('Nav')
-    const dispatch = useAppDispatch()
+    const dispatch = hooks()
+    const userInfo = useAppSelector(selectUserInfo)
+    const {isOpen} = useAppSelector(modalStateSelector);
+    useEffect(() => {
+        dispatch(userActions.initAuthData())
+    }, [dispatch]);
 
     return (
         <>
@@ -44,18 +51,26 @@ const Navbar: FC<HeaderProps> = (
                             <NavbarLink offset={60} to={Sections.Feature}>{t('contact_us')}</NavbarLink>
                             <NavbarLink offset={100} to={Sections.Contacts}>{t('services')}</NavbarLink>
                         </div>
-                        <div className={classNames('hidden md:flex flex gap-5')}>
+                        <div className={classNames('hidden md:flex gap-5')}>
                             <Button border={true}>Learn More</Button>
-                            <Button onClick={() => {dispatch(setIsOpenStore(true))}} fill={true} border={true}>Sign Up</Button>
+                            {userInfo.authData
+                                ? <div>
+                                    {userInfo.name}
+                                    <Button onClick={() => dispatch(userActions.clearAuthData())}>Logout</Button>
+                                </div>
+                                : <Button onClick={() => {
+                                    dispatch(modalActions.setIsOpen(true))
+                                }} fill={true} border={true}>Sign Up</Button>
+                            }
                         </div>
                     </div>
 
-                    <Button onClick={() => setIsOpen(prevState => !prevState)} className={classNames('md:hidden pe-0')}>
+                    <Button onClick={() => setIsExtended(prevState => !prevState)} className={classNames('md:hidden pe-0')}>
                         <Image alt={'menu'} src={MenuIcon} width={36} height={24}></Image>
                     </Button>
                 </div>
             </div>
-            <Menu isOpen={isOpen}/>
+            <Menu isOpen={isExtended}/>
         </>
     );
 };

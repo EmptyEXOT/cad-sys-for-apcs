@@ -2,7 +2,7 @@
 import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
 import cls from "./Test.module.scss"
-import {useGetTodoByIdQuery} from "@/features/SignUpForm/services/signUp";
+import {useGetTodoByIdQuery} from "@/features/SignUp/services/signUpService";
 
 
 
@@ -17,19 +17,22 @@ const Test: FC<TestProps> = (
         ...props
     }
 ) => {
-    const { data, error, isLoading } = useGetTodoByIdQuery(1)
+    // const { data, error, isLoading } = useGetTodoByIdQuery(1)
 
     return (
-        <div className="App">
-            {error ? (
-                <>Oh no, there was an error</>
-            ) : isLoading ? (
-                <>Loading...</>
-            ) : data ? (
-                <>
-                    <h3>{JSON.stringify(data)}</h3>
-                </>
-            ) : null}
+        // <div className="App">
+        //     {error ? (
+        //         <>Oh no, there was an error</>
+        //     ) : isLoading ? (
+        //         <>Loading...</>
+        //     ) : data ? (
+        //         <>
+        //             <h3>{JSON.stringify(data)}</h3>
+        //         </>
+        //     ) : null}
+        // </div>
+        <div>
+
         </div>
     )
 };

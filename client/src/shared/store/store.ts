@@ -1,15 +1,17 @@
 import {configureStore} from '@reduxjs/toolkit'
-import modalReducer from '@/widgets/Modal/modalSlice'
-import {signUpApi} from "@/features/SignUpForm/services/signUp";
-import {setupListeners} from "@reduxjs/toolkit/query";
+import {signUpReducer} from "@/features/SignUp/model/signUpSlice";
+import {loginReducer} from "@/features/Login/model/LoginSlice";
+import {userReducer} from "@/entities/User/model/userSlice";
+import {modalReducer} from "@/widgets/Modal/model/modalSlice";
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
             modal: modalReducer,
-            [signUpApi.reducerPath]: signUpApi.reducer,
+            signUp: signUpReducer,
+            login: loginReducer,
+            user: userReducer,
         },
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(signUpApi.middleware)
     })
 }
 
