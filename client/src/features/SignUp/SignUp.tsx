@@ -2,12 +2,12 @@
 import React, {FC, ReactNode, useCallback} from 'react';
 import classNames from "classnames";
 import cls from "./SignUp.module.scss"
-import Button from "@/shared/Button/Button";
-import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {useAppDispatch, useAppSelector} from "@/shared/store/hooks";
 import {signUpActions} from "@/features/SignUp/model/signUpSlice";
-import Input from "@/shared/Input/Input";
 import {selectSignUpBody} from "@/features/SignUp/model/selectors";
 import {signUpService} from "@/features/SignUp/services/signUpService";
+import Input from "@/shared/ui/Input/Input";
+import Button from "@/shared/ui/Button/Button";
 
 interface SignUpFormProps {
     children?: ReactNode
@@ -20,7 +20,7 @@ const SignUp: FC<SignUpFormProps> = (
         ...props
     }
 ) => {
-    const dispatch = hooks()
+    const dispatch = useAppDispatch()
 
     const {error, isLoading, ...signUpBody} = useAppSelector(selectSignUpBody);
 

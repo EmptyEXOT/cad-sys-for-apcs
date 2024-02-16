@@ -1,12 +1,12 @@
 import React, {FC, ReactNode, useCallback} from 'react';
 import classNames from "classnames";
 import cls from "./Login.module.scss"
-import Input from "@/shared/Input/Input";
-import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {useAppDispatch, useAppSelector} from "@/shared/store/hooks";
 import {loginActions} from "@/features/Login/model/LoginSlice";
 import {loginService} from "@/features/Login/services/loginService";
 import {selectLoginInfo} from "@/features/Login/model/selectors";
-import Button from '@/shared/Button/Button';
+import Input from "@/shared/ui/Input/Input";
+import Button from "@/shared/ui/Button/Button";
 
 interface LoginFormProps {
     children?: ReactNode
@@ -19,7 +19,7 @@ const LoginForm: FC<LoginFormProps> = (
         ...props
     }
 ) => {
-    const dispatch = hooks()
+    const dispatch = useAppDispatch()
     const {error, isLoading, ...body} = useAppSelector(selectLoginInfo);
 
     const onNameChange = useCallback((value: string) => {

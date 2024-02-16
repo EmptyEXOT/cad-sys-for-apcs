@@ -1,0 +1,21 @@
+.typo {
+
+}
+
+@layer typo {
+  .typo-color-warning {
+    @apply text-amber-600
+  }
+  .typo-color-alert {
+    @apply text-red-800
+  }
+  .typo-color-primary {
+    @apply text-black
+  }
+  .typo-color-secondary {
+    @apply text-neutral-800
+  }
+  .typo-color-successful {
+    @apply text-green-800
+  }
+}

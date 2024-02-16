@@ -8,14 +8,14 @@ import {Sections} from "@/shared/sections/sections";
 import MenuIcon from './Menu.svg'
 import Logo from './Logo.svg'
 import Image from 'next/image'
-import Button from "@/shared/Button/Button";
 import Menu from "@/widgets/Navbar/Menu";
 import {useTranslations} from "next-intl";
-import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {useAppDispatch, useAppSelector} from "@/shared/store/hooks";
 import {userActions} from "@/entities/User/model/userSlice";
 import {selectUserInfo} from "@/entities/User/model/selectors";
 import {modalActions} from "@/widgets/Modal/model/modalSlice";
 import {modalStateSelector} from "@/widgets/Modal/model/selectors";
+import Button from "@/shared/ui/Button/Button";
 
 interface HeaderProps {
     children?: ReactNode
@@ -31,7 +31,7 @@ const Navbar: FC<HeaderProps> = (
 ) => {
     const [isExtended, setIsExtended] = useState<boolean>(false)
     const t = useTranslations('Nav')
-    const dispatch = hooks()
+    const dispatch = useAppDispatch()
     const userInfo = useAppSelector(selectUserInfo)
     const {isOpen} = useAppSelector(modalStateSelector);
     useEffect(() => {

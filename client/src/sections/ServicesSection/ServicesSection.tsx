@@ -4,8 +4,8 @@ import cls from "./ServicesSection.module.scss"
 import Section from '@/shared/Section/Section';
 import {Sections} from "@/shared/sections/sections";
 import {useTranslations} from "next-intl";
-import Button from "@/shared/Button/Button";
 import ImagePlaceholder from "@/shared/Placeholder/ImagePlaceholder/ImagePlaceholder";
+import Button from "@/shared/ui/Button/Button";
 
 interface ServicesSectionProps {
     children?: ReactNode
