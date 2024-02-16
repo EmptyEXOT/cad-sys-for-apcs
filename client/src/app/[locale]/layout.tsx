@@ -4,11 +4,13 @@ import {inter} from '@/shared/fonts/fonts'
 import Navbar from "@/widgets/Navbar/Navbar";
 import {NextIntlClientProvider, useMessages} from "next-intl";
 import * as console from "console";
-import StoreProvider from "@/shared/StoreProvider";
-import SignUpForm from "@/features/SignUpForm/SignUpForm";
+import StoreProvider from "@/shared/store/StoreProvider";
+import SignUp from "@/features/SignUp/SignUp";
 import Modal from "@/widgets/Modal/Modal";
 import React from "react";
 import Test from "@/widgets/Test/Test";
+import LoginForm from "@/features/Login/ui/LoginForm";
+import AuthModal from "@/widgets/AuthModal/AuthModal";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -30,9 +32,7 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
             <StoreProvider>
                 <Navbar/>
-                <Modal>
-                    <SignUpForm/>
-                </Modal>
+                <AuthModal/>
             </StoreProvider>
             {children}
         </NextIntlClientProvider>

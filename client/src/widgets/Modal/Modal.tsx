@@ -4,9 +4,10 @@ import React, {FC, KeyboardEvent, ReactNode, useEffect, useState} from 'react';
 import classNames from "classnames";
 import cls from "./Modal.module.scss"
 import {set} from "immutable";
-import StoreProvider from "@/shared/StoreProvider";
-import {useAppDispatch, useAppSelector} from "@/shared/hooks/useAppDispatch";
-import {setIsOpen} from "@/widgets/Modal/modalSlice";
+import StoreProvider from "@/shared/store/StoreProvider";
+import {hooks, useAppSelector} from "@/shared/store/hooks";
+import {modalActions} from "@/widgets/Modal/model/modalSlice";
+import {modalStateSelector} from "@/widgets/Modal/model/selectors";
 
 interface ModalProps {
     children?: ReactNode
@@ -19,11 +20,11 @@ const Modal: FC<ModalProps> = (
         ...props
     }
 ) => {
-    const isOpen = useAppSelector((state) => state.modal.isOpen)
-    const dispatch = useAppDispatch()
+    const {isOpen} = useAppSelector(modalStateSelector)
+    const dispatch = hooks()
 
     const onEscapeKeydown = (event: any) => {
-        if (event.key === 'Escape') dispatch(setIsOpen(false))
+        if (event.key === 'Escape') dispatch(modalActions.setIsOpen(false))
     }
 
     useEffect(() => {
@@ -37,7 +38,7 @@ const Modal: FC<ModalProps> = (
     return (
         <>
             <div onClick={() => {
-                dispatch(setIsOpen(false))
+                dispatch(modalActions.setIsOpen(false))
             }}
                  className={classNames(isOpen ? ('fixed bg-gray-800 opacity-80 w-screen h-screen top-0 bottom-0 z-40') : 'hidden')}/>
             <div className={classNames(cls.modal, isOpen ? 'fixed z-50' : 'hidden', props.className)}>

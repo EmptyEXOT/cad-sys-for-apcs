@@ -8,7 +8,7 @@ import React from "react";
 import HomeSection from "@/sections/HomeSection/HomeSection";
 import Test from "@/widgets/Test/Test";
 import {Provider} from "react-redux";
-import StoreProvider from "@/shared/StoreProvider";
+import StoreProvider from "@/shared/store/StoreProvider";
 
 export default function Home() {
     const t = useTranslations('Sections')
