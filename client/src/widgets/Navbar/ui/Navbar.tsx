@@ -49,8 +49,8 @@ export const Navbar: FC<HeaderProps> = (
                         </div>
                     </div>
                     <div className={classNames('flex gap-2')}>
-                        <Link className={classNames('hidden md:flex flex-col justify-center bg-black p-2 rounded-md h-max self-center')} href={'/auth'}>
-                            <Typo.H className={classNames('text-white')} size={HeaderSize.h2}>Register</Typo.H>
+                        <Link className={classNames('hidden md:flex flex-col justify-center border-2 border-black p-2 rounded-md h-max self-center')} href={'/auth'}>
+                            <Typo.H size={HeaderSize.h3}>Sign In</Typo.H>
                         </Link>
                         <Button onClick={() => setIsExtended(prevState => !prevState)}
                                 className={classNames('pe-0')}>
