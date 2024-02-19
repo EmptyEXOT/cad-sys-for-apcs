@@ -1,16 +1,11 @@
 import type {Metadata} from "next";
 import "./globals.scss";
 import {inter} from '@/shared/fonts/fonts'
-import Navbar from "@/widgets/Navbar/ui/Navbar";
 import {NextIntlClientProvider, useMessages} from "next-intl";
-import * as console from "console";
 import StoreProvider from "@/shared/store/StoreProvider";
-import SignUp from "@/features/SignUp/SignUp";
-import Modal from "@/widgets/Modal/Modal";
 import React from "react";
-import Test from "@/widgets/Test/Test";
-import LoginForm from "@/features/Login/ui/LoginForm";
 import AuthModal from "@/widgets/AuthModal/AuthModal";
+import {Navbar} from "@/widgets/Navbar";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -30,10 +25,6 @@ export default function RootLayout({
         <html lang={locale}>
         <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-            <StoreProvider>
-                <Navbar/>
-                <AuthModal/>
-            </StoreProvider>
             {children}
         </NextIntlClientProvider>
 
