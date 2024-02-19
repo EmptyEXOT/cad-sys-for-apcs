@@ -16,9 +16,9 @@ interface HeaderProps extends TypoProps {
     size?: HeaderSize,
 }
 
-export type HeaderComponent = FC<HeaderProps>
+export type HComponent = FC<HeaderProps>
 
-const Header: HeaderComponent = (
+const H: HComponent = (
     {
         children,
         variant = TypoVariant.Primary,
@@ -27,9 +27,9 @@ const Header: HeaderComponent = (
 ): ReactElement | null => {
     props.size = props.size ?? HeaderSize.h1
     return (
-        <props.size className={classNames(variant, props.bold ? 'font-extrabold' : '', props.className)}>
+        <props.size className={classNames(variant, 'h', props.bold ? 'font-extrabold' : '', props.className)}>
             {children}
         </props.size>
     )
 }
-export default Header;
+export default H;

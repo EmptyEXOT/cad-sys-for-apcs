@@ -11,12 +11,4 @@
   background-color: white;
 }
 
-.open {
-  transform: translateY(0);
-  transition-duration: 400ms;
-}
 
-.close {
-  transform: translateY(-140%);
-  transition-duration: 400ms;
-}

@@ -1,0 +1,22 @@
+import React from 'react';
+import classNames from "classnames";
+import Typo, {TypoVariant} from "@/shared/ui/Typo/Typo";
+
+interface DisclaimerProps {
+
+}
+
+const Disclaimer = () => {
+    return (
+        <div className={classNames('m-3 p-3 flex gap-5 flex-col border-solid border-amber-600 border-2')}>
+            <Typo.H className={classNames('text-2xl text-center')} bold={true} variant={TypoVariant.Warning}>Mobile
+                version is unavailable!</Typo.H>
+            <Typo.P bold={true} variant={TypoVariant.Warning} className={classNames('text-center')}>
+                The mobile version of the application is being developed. You can use the desktop version of the app
+                to log in.
+            </Typo.P>
+        </div>
+    );
+};
+
+export default Disclaimer;
