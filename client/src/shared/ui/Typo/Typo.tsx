@@ -13,7 +13,7 @@ export enum TypoVariant {
 }
 
 export interface TypoProps {
-    children?: ReactNode
+    children: ReactNode
     className?: string | undefined;
     variant?: TypoVariant,
     bold?: boolean,

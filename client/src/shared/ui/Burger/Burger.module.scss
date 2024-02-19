@@ -14,7 +14,6 @@
 .navIcon span {
   display: block;
   position: absolute;
-  height: 5px;
   width: 100%;
   background: black;
   border-radius: 5px;
@@ -41,7 +40,7 @@
 
 .open span:nth-child(1) {
   top: 18px;
-  width: 0%;
+  width: 0;
   left: 50%;
 }
 
