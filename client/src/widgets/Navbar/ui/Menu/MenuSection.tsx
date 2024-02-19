@@ -12,7 +12,7 @@ interface MenuSectionProps {
 
 const MenuSection: FC<MenuSectionProps> = ({children, className, header, ...props}) => {
     return (
-        <div className={classNames('container mx-auto pb-6 pt-6 px-3', className)}>
+        <div className={classNames('container pb-6 pt-6 px-3', className)}>
             {header && <Typo.H className={classNames('pb-2')} size={HeaderSize.h4} bold={true}>{header}</Typo.H>}
             {children}
         </div>

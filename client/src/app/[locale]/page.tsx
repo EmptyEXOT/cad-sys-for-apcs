@@ -5,23 +5,25 @@ import classNames from "classnames";
 import ImagePlaceholder from "@/shared/Placeholder/ImagePlaceholder/ImagePlaceholder";
 import React from "react";
 import HomeSection from "@/sections/HomeSection/HomeSection";
-import Test from "@/widgets/Test/Test";
-import {Provider} from "react-redux";
-import StoreProvider from "@/shared/store/StoreProvider";
 import Button from "@/shared/ui/Button/Button";
+import {Navbar} from "@/widgets/Navbar";
+import AuthModal from "@/widgets/AuthModal/AuthModal";
+import StoreProvider from "@/shared/store/StoreProvider";
+
+type Item = {
+    label: string;
+    value: number;
+}
 
 export default function Home() {
     const t = useTranslations('Sections')
-    return (
+    return (<>
+        <StoreProvider>
+            <Navbar/>
+            <AuthModal/>
+        </StoreProvider>
         <main className="">
-
-
-
             <HomeSection/>
-            <StoreProvider>
-
-                <Test></Test>
-            </StoreProvider>
 
             <Section id={Sections.Gallery} className={classNames('pt-24')}>
                 <div className={classNames('flex flex-col gap-16')}>
@@ -178,5 +180,7 @@ export default function Home() {
                 </div>
             </Section>
         </main>
+        </>
+
     );
 }

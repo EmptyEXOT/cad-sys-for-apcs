@@ -8,7 +8,8 @@
   transition-duration: 400ms;
 }
 
-.menuWrapper {
+.menuWrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .menu {

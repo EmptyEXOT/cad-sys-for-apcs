@@ -16,11 +16,11 @@ const Burger: FC<BurgerProps> = (
     }
 ) => {
     return (
-        <div className={classNames(cls.navIcon, '', props.className, isOpen ? cls.open : '')}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div className={classNames(cls.navIcon, 'self-center', props.className, isOpen ? cls.open : '')}>
+            <span className={classNames('h-1')}></span>
+            <span className={classNames('h-1')}></span>
+            <span className={classNames('h-1')}></span>
+            <span className={classNames('h-1')}></span>
         </div>
     );
 };
