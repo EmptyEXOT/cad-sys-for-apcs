@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import "./globals.scss";
 import {inter} from '@/shared/fonts/fonts'
-import Navbar from "@/widgets/Navbar/Navbar";
+import Navbar from "@/widgets/Navbar/ui/Navbar";
 import {NextIntlClientProvider, useMessages} from "next-intl";
 import * as console from "console";
 import StoreProvider from "@/shared/store/StoreProvider";

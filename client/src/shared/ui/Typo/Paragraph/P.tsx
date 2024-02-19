@@ -6,9 +6,9 @@ import {TypoProps, TypoVariant} from "@/shared/ui/Typo/Typo";
 interface ParagraphProps extends TypoProps {
 }
 
-export type ParagraphComponent = FC<ParagraphProps>
+export type PComponent = FC<ParagraphProps>
 
-const Paragraph: ParagraphComponent = (
+const P: PComponent = (
     {
         children,
         variant = TypoVariant.Primary,
@@ -21,4 +21,4 @@ const Paragraph: ParagraphComponent = (
         </p>
     )
 }
-export default Paragraph;
+export default P;

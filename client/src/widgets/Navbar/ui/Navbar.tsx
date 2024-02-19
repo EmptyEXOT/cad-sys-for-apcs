@@ -3,12 +3,12 @@
 import React, {FC, ReactNode, useEffect, useState} from 'react';
 import classNames from "classnames";
 import cls from "./Navbar.module.scss"
-import NavbarLink from "@/widgets/Navbar/NavbarLink";
+import NavbarLink from "@/widgets/Navbar/ui/NavbarLink";
 import {Sections} from "@/shared/sections/sections";
 import MenuIcon from './Menu.svg'
 import Logo from './Logo.svg'
 import Image from 'next/image'
-import Menu from "@/widgets/Navbar/Menu";
+import Menu from "@/widgets/Navbar/ui/Menu/Menu";
 import {useTranslations} from "next-intl";
 import {useAppDispatch, useAppSelector} from "@/shared/store/hooks";
 import {userActions} from "@/entities/User/model/userSlice";
@@ -16,6 +16,7 @@ import {selectUserInfo} from "@/entities/User/model/selectors";
 import {modalActions} from "@/widgets/Modal/model/modalSlice";
 import {modalStateSelector} from "@/widgets/Modal/model/selectors";
 import Button from "@/shared/ui/Button/Button";
+import Burger from "@/shared/ui/Burger/Burger";
 
 interface HeaderProps {
     children?: ReactNode
@@ -65,8 +66,9 @@ const Navbar: FC<HeaderProps> = (
                         </div>
                     </div>
 
-                    <Button onClick={() => setIsExtended(prevState => !prevState)} className={classNames('md:hidden pe-0')}>
-                        <Image alt={'menu'} src={MenuIcon} width={36} height={24}></Image>
+                    <Button onClick={() => setIsExtended(prevState => !prevState)}
+                            className={classNames('md:hidden pe-0')}>
+                        <Burger isOpen={isExtended}/>
                     </Button>
                 </div>
             </div>

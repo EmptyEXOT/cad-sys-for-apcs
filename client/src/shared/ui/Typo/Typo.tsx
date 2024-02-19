@@ -1,8 +1,8 @@
 import React, {FC, ReactElement, ReactNode} from 'react';
 import classNames from "classnames";
 import "./Typo.scss"
-import Header, {HeaderComponent} from "@/shared/ui/Typo/Header/Header";
-import Paragraph, {ParagraphComponent} from "@/shared/ui/Typo/Paragraph/Paragraph";
+import H, {HComponent} from "@/shared/ui/Typo/Header/H";
+import P, {PComponent} from "@/shared/ui/Typo/Paragraph/P";
 
 export enum TypoVariant {
     Primary = 'typo-color-primary',
@@ -22,8 +22,8 @@ export interface TypoProps {
 }
 
 export type TypoComponent = FC<TypoProps> & {
-    Header: HeaderComponent,
-    Paragraph: ParagraphComponent,
+    H: HComponent,
+    P: PComponent,
 };
 
 const Typo: TypoComponent = (
@@ -38,7 +38,7 @@ const Typo: TypoComponent = (
     );
 };
 
-Typo.Header = Header
-Typo.Paragraph = Paragraph
+Typo.H = H
+Typo.P = P
 
 export default Typo;
