@@ -27,7 +27,7 @@ const H: HComponent = (
 ): ReactElement | null => {
     props.size = props.size ?? HeaderSize.h1
     return (
-        <props.size className={classNames(variant, 'h', props.bold ? 'font-extrabold' : '', props.className)}>
+        <props.size className={classNames(variant, 'h', props.bold ? 'font-extrabold' : '', props.underline ? 'underline' : '' ,props.className)}>
             {children}
         </props.size>
     )

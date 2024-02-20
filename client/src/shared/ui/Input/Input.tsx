@@ -6,7 +6,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     children?: ReactNode
     className?: string | undefined;
     value?: string,
-    label?: string,
+    label?: string | ReactNode,
     autofocus?: boolean,
     onChange?: (value: string) => void,
     placeholder?: string,
@@ -22,6 +22,7 @@ const Input: FC<InputProps> = (
         autofocus = false,
         placeholder = '',
         type = 'text',
+        className,
         ...props
     }
 ) => {
@@ -30,16 +31,17 @@ const Input: FC<InputProps> = (
     }
 
     return (
-        <>
+        <div className={classNames('flex flex-col gap-2')}>
             {label && <label htmlFor={props.id}>{label}</label>}
             <input
                 id={props.id}
-                className={classNames(cls.input, '', props.className)}
+                className={classNames(cls.input, 'border border-neutral-400 rounded-md', className)}
                 value={value}
                 onChange={onChangeHandler}
+                type={type}
                 {...props}
             />
-        </>
+        </div>
 
     );
 };

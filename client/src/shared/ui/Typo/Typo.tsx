@@ -9,7 +9,8 @@ export enum TypoVariant {
     Secondary = 'typo-color-secondary',
     Alert = 'typo-color-alert',
     Warning = 'typo-color-warning',
-    Successful = 'typo-color-successful'
+    Successful = 'typo-color-successful',
+    Light = 'typo-color-light'
 }
 
 export interface TypoProps {

@@ -16,7 +16,7 @@ interface LoginResponse {
 }
 
 export const loginService = createAsyncThunk<LoginResponse, LoginBody, { rejectValue: LoginError }>(
-    'auth/login',
+    'signup/login',
     async (data, thunkAPI) => {
         try {
             const response = await axios.post<LoginResponse>('http://localhost:5000/auth/login', data)
