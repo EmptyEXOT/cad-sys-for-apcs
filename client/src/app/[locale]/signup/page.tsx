@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export default function AuthPage() {
+export default function SignupPage() {
     return (
         <main className={classNames('')}>
         <div>auth</div>
