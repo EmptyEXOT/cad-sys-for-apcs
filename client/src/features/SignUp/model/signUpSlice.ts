@@ -4,6 +4,8 @@ import {signUpService} from "@/features/SignUp/services/signUpService";
 
 const initialState: SignUpSchema = {
     password: '',
+    repeatPassword: '',
+    isPasswordEqual: true,
     name: '',
     email: '',
     isLoading: false,
@@ -19,6 +21,11 @@ const signUpSlice = createSlice({
         },
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload
+            state.isPasswordEqual = state.password === state.repeatPassword
+        },
+        setRepeatPassword: (state, action: PayloadAction<string>) => {
+            state.repeatPassword = action.payload
+            state.isPasswordEqual = state.password === state.repeatPassword
         },
         setEmail: (state, action: PayloadAction<string>) => {
             state.email = action.payload

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import cls from "./AuthModal.module.scss"
 import Modal from "@/widgets/Modal/Modal";
 import LoginForm from "@/features/Login/ui/LoginForm";
-import SignUp from "@/features/SignUp/SignUp";
+import SignUpForm from "@/features/SignUp/SignUpForm";
 import Button from '@/shared/ui/Button/Button';
 
 enum Form {
@@ -38,7 +38,7 @@ const AuthModal: FC<AuthModalProps> = (
             </div>
             {(form === Form.Login)
                 ? <LoginForm />
-                : <SignUp />}
+                : <SignUpForm />}
         </Modal>
     );
 };

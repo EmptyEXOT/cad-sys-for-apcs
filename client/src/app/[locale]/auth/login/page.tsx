@@ -13,9 +13,13 @@ import Return from '@/public/Return.png'
 
 export default function LoginPage() {
     return (
-        <>
-            <main>
-                <div className={classNames('container mx-auto hidden sm:flex flex-col gap-5 py-8')}>
+        <main>
+            <div className={classNames('min-h-screen flex justify-center')}>
+                <div className={classNames('hidden md:flex flex-1 justify-center max-h-screen overflow-hidden bg-neutral-200')}>
+                    <Image alt={'placeholder'} src='https://placehold.co/600x600' width={600}
+                           height={600} unoptimized></Image>
+                </div>
+                <div className={classNames('container mx-auto hidden justify-center sm:flex flex-col gap-5 py-8 flex-1')}>
                     <div className={classNames('self-center')}>
                         <Link href={"/"}>
                             <Image alt={'Logo'} src={Logo} width={100}/>
@@ -33,26 +37,10 @@ export default function LoginPage() {
                             APCS"?</Typo.H>
                         <Typo.H className={classNames('self-center text-blue-700')} underline={true}
                                 size={HeaderSize.h4}><Link href={"/signup"}>Create an account</Link></Typo.H>
-
-                    </div>
-                    <div>
-                        <nav>
-
-                        </nav>
                     </div>
                 </div>
-                <div className={classNames('h-screen sm:h-full flex flex-col justify-center')}>
-                    <Link className={classNames('sm:fixed sm:top-2 sm:left-2 justify-center flex gap-2')} href={"/"}>
-                        <Image width={36} alt={'Return'} src={Return}></Image>
-                        <Typo.H size={HeaderSize.h3} bold={true} className={classNames('self-center')}>Go Back</Typo.H>
-                    </Link>
-                    <Disclaimer>
+            </div>
 
-                    </Disclaimer>
-
-                </div>
-            </main>
-        </>
-
+        </main>
     )
 }
