@@ -38,6 +38,7 @@ const Input: FC<InputProps> = (
                 className={classNames(cls.input, 'border border-neutral-400 rounded-md', className)}
                 value={value}
                 onChange={onChangeHandler}
+                placeholder={placeholder}
                 type={type}
                 {...props}
             />

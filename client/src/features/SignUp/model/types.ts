@@ -1,6 +1,8 @@
 export interface SignUpSchema {
     name: string,
     password: string,
+    repeatPassword: string,
+    isPasswordEqual: boolean,
     isLoading: boolean,
     email: string
     error: SignUpError

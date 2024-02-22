@@ -8,9 +8,9 @@ export const localePrefix = 'always';
 
 export const pathnames = {
     '/': '/',
-    '/signup': '/signup',
-    '/login': '/login',
-    '/password_reset': '/password_reset',
+    '/signup': '/auth/signup',
+    '/login': '/auth/login',
+    '/password_reset': '/auth/password_reset',
 
 } satisfies Pathnames<typeof locales>;
 
