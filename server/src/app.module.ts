@@ -10,6 +10,7 @@ import * as process from "process";
 import {UserRolesModel} from "./roles/user-roles.model";
 import {Role} from "./roles/roles.model";
 import {User} from "./users/user.model";
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import {User} from "./users/user.model";
       AuthModule,
       UserModule,
       RolesModule,
+      MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
