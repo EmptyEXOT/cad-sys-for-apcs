@@ -35,7 +35,7 @@ const Input: FC<InputProps> = (
             {label && <label htmlFor={props.id}>{label}</label>}
             <input
                 id={props.id}
-                className={classNames(cls.input, 'border border-neutral-400 rounded-md', className)}
+                className={classNames(cls.input, 'border border-neutral-400 rounded-md px-2', className)}
                 value={value}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
