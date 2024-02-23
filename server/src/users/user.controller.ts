@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Redirect} from '@nestjs/common';
 import {UserService} from "./user.service";
 import {AddRoleDto} from "./dtos/addRoleDto";
 import {ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags} from "@nestjs/swagger";
@@ -58,6 +58,7 @@ export class UserController {
     }
 
     @Get(`activate/:activationLink`)
+    @Redirect(`http://localhost:3000/ru/auth/login`)
     activate(@Param('activationLink') activationLink: string) {
         return this.userService.activate(activationLink);
     }
