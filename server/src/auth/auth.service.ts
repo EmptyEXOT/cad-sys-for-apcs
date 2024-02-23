@@ -43,7 +43,7 @@ export class AuthService {
 
     async validateUser(username: string, password: string) {
         const user = await this.userService.getUserByName(username);
-        if (user && (await compare(password, user.password))) {
+        if (user && (await compare(password, user.password)) && user.isConfirmed) {
             return user
         }
         return null;

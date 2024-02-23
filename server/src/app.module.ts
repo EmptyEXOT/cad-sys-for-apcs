@@ -10,12 +10,16 @@ import * as process from "process";
 import {UserRolesModel} from "./roles/user-roles.model";
 import {Role} from "./roles/roles.model";
 import {User} from "./users/user.model";
+import { MailModule } from './mail/mail.module';
+import {ScheduleModule} from "@nestjs/schedule";
+import { ScheduledTaskModule } from './scheduled-task/scheduled-task.module';
 
 @Module({
   imports: [
       ConfigModule.forRoot({
           envFilePath: `.${process.env.NODE_ENV}.env`
       }),
+      ScheduleModule.forRoot(),
       SequelizeModule.forRoot({
           dialect: 'postgres',
           host: process.env.POSTGRES_HOST,
@@ -29,6 +33,8 @@ import {User} from "./users/user.model";
       AuthModule,
       UserModule,
       RolesModule,
+      MailModule,
+      ScheduledTaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

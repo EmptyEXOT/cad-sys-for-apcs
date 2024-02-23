@@ -45,7 +45,7 @@ export class AuthController {
     @Get('refresh')
     async refreshToken(@Req() req: any) {
         const userId = req.user['sub'];
-        const refreshToken = req.user['refreshToken']
+        const refreshToken = req.user['refreshToken'];
         return this.authService.refreshTokens(userId, refreshToken);
     }
 }
