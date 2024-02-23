@@ -50,7 +50,7 @@ export class UserService {
                 to: user.email,
                 html: `<a href="http://localhost:5000/users/activate/${confirmationLink}">http://localhost:5000/users/activate/${confirmationLink}</a>`
             })
-            const timeout = setTimeout(() => {this.deleteOnActivationLinkExpired(confirmationLink, timeout)}, 20000)
+            const timeout = setTimeout(() => {this.deleteOnActivationLinkExpired(confirmationLink, timeout)}, 40000)
             return user;
         }
         throw new HttpException('There is no such role', HttpStatus.NOT_FOUND);
@@ -76,6 +76,7 @@ export class UserService {
             } else console.log('fine')
         } else throw new HttpException('Incorrect link', HttpStatus.NOT_FOUND);
     }
+
 
     async deleteByUsername(name: string) {
         const candidate = await this.userModel.findOne({where: {name}, include: {all: true}});
