@@ -1,13 +1,8 @@
-import {Body, Controller, Delete, Get, Param, Post, Req, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {UserService} from "./user.service";
-import {AccessTokenGuard} from "../auth/guards/access-token-guard.service";
 import {AddRoleDto} from "./dtos/addRoleDto";
 import {ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {User} from "./user.model";
-import {DataTypes} from "sequelize";
-import {DataType} from "sequelize-typescript";
-import {Role} from "../roles/roles.model";
-import {CreateRoleDto} from "../roles/dtos/CreateRole.dto";
 
 @ApiTags('users')
 @Controller('users')
@@ -60,5 +55,10 @@ export class UserController {
     @Post('addRole')
     addRole(@Body() addRoleDto: AddRoleDto) {
         return this.userService.addRoleByName(addRoleDto.name, addRoleDto.role);
+    }
+
+    @Get(`activate/:activationLink`)
+    activate(@Param('activationLink') activationLink: string) {
+        return this.userService.activate(activationLink);
     }
 }

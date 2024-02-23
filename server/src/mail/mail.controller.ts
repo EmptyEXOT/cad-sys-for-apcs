@@ -9,7 +9,7 @@ export class MailController {
 
     @Get('send')
     async sendMail() {
-        await this.mailService.sendMail({
+        await this.mailService.sendConfirmationMail({
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER,
             text: 'test',

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import Mail from "nodemailer/lib/mailer";
 import {createTransport} from "nodemailer";
 import * as process from "process";
+import {v4} from "uuid";
 
 @Injectable()
 export class MailService {
@@ -16,7 +17,11 @@ export class MailService {
         });
     }
 
-    sendMail(options: Mail.Options) {
+    generateConfirmationLink() {
+        return v4();
+    }
+
+    sendConfirmationMail(options: Mail.Options) {
         return this.nodemailerTransport.sendMail(options);
     }
 }

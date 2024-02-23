@@ -13,6 +13,7 @@ import {RolesModule} from "../roles/roles.module";
 import {AccessJwtStrategy} from "./strategies/access-jwt-strategy";
 import {RefreshJwtStrategy} from "./strategies/refresh-jwt.strategy";
 import {UserRolesModel} from "../roles/user-roles.model";
+import {MailModule} from "../mail/mail.module";
 
 @Module({
     providers: [AuthService, UserService, LocalStrategy, UserService, AccessJwtStrategy, RefreshJwtStrategy],
@@ -26,6 +27,7 @@ import {UserRolesModel} from "../roles/user-roles.model";
         forwardRef(() => UserModule),
         PassportModule,
         RolesModule,
+        MailModule,
     ],
     exports: [AuthService, JwtModule]
 })
